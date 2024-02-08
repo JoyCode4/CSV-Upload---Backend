@@ -12,15 +12,15 @@
         <h1>Error in uploading</h1>
         <% } %>
             <form action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="csvFile" />
+                <input type="file" name="csvFile" required />
                 <button type="submit">Upload File</button>
             </form>
             <% if(files.length>0){ %>
                 <ul>
 
                     <% for(let file of files){ %>
-                        <li> File Name : <a href="details/<%= file.filename %>">
-                                <%= file.originalname %>
+                        <li> File Name : <a href="details/<%= file.fileName %>">
+                                <%= file.name %>
                             </a>
                         </li>
                         <% } %>

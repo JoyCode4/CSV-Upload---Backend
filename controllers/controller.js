@@ -1,17 +1,21 @@
 const csv = require("csv-parser");
 const fs = require("fs");
 const path = require("path");
-const files = [];
+const CSV = require("../model/csv");
 
-module.exports.home = (req, res) => {
+module.exports.home = async (req, res) => {
+  const files = await CSV.find({});
   return res.render("homepage", { msg: null, files });
 };
 
-module.exports.upload = (req, res) => {
+module.exports.upload = async (req, res) => {
   if (req.file === undefined) {
-    return res.render("homepage", { msg: "Enter valid file", files });
+    return res.render("homepage", { msg: "Enter valid file" });
   }
-  files.push(req.file);
+  const file = await CSV.create({
+    name: req.file.originalname,
+    fileName: req.file.filename,
+  });
   return res.redirect("/");
 };
 
