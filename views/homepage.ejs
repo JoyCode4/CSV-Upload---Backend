@@ -18,8 +18,10 @@
             <% if(files.length>0){ %>
                 <ul>
 
-                    <% for(let i=0;i<files.length;i++){ %>
-                        <li> File Name : <%= files[i].originalname %>
+                    <% for(let file of files){ %>
+                        <li> File Name : <a href="details/<%= file.filename %>">
+                                <%= file.originalname %>
+                            </a>
                         </li>
                         <% } %>
                 </ul>

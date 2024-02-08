@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="/css/details.css">
+</head>
+
+<body>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <% for(let x in file[0]){ %>
+                    <th>
+                        <%= x %>
+                    </th>
+                    <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i of file){ %>
+                <tr>
+                    <% for(let x in i){ %>
+                        <td>
+                            <%= i[x] %>
+                        </td>
+                        <% } %>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>

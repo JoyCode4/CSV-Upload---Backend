@@ -25,5 +25,6 @@ const upload = multer({
 
 router.get("/", controller.home);
 router.post("/upload", upload.single("csvFile"), controller.upload);
+router.get("/details/:name", controller.details);
 
 module.exports = router;

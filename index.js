@@ -3,8 +3,9 @@ const path = require("path");
 const PORT = 8080;
 const app = express();
 
+app.use(express.static("./assets"));
 app.set("view engine", "ejs");
-app.set("views", path.resolve("./views"));
+app.set("views", "./views");
 
 app.use(express.urlencoded({ extended: false }));
 
