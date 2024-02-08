@@ -8,9 +8,7 @@ app.set("views", path.resolve("./views"));
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  return res.render("homepage");
-});
+app.use("/", require("./routes"));
 
 app.listen(PORT, () => {
   console.log("Server is listening on port: " + PORT);
