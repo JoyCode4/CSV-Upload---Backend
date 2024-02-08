@@ -8,7 +8,22 @@
 </head>
 
 <body>
-    <h1>CSV Upload HomePage</h1>
+    <% if(msg){ %>
+        <h1>Error in uploading</h1>
+        <% } %>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="csvFile" />
+                <button type="submit">Upload File</button>
+            </form>
+            <% if(files.length>0){ %>
+                <ul>
+
+                    <% for(let i=0;i<files.length;i++){ %>
+                        <li> File Name : <%= files[i].originalname %>
+                        </li>
+                        <% } %>
+                </ul>
+                <% } %>
 </body>
 
 </html>

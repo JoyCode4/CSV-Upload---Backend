@@ -1,7 +1,29 @@
 const express = require("express");
-const router = express.Router();
+const multer = require("multer");
 const controller = require("../controllers/controller");
+const router = express.Router();
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "assets/uploads");
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === "text/csv") {
+      cb(null, true);
+    } else {
+      cb(null, false);
+    }
+  },
+});
 
 router.get("/", controller.home);
+router.post("/upload", upload.single("csvFile"), controller.upload);
 
 module.exports = router;
