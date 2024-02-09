@@ -5,13 +5,13 @@ const csvSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  uploadOn: {
-    type: String,
-    default: new Date().toDateString(),
-  },
   fileName: {
     type: String,
     required: true,
+  },
+  uploadedOn: {
+    type: Date,
+    default: () => Date.now(),
   },
 });
 
