@@ -7,6 +7,27 @@
 	align-items: center;
 	background-color: antiquewhite;
 }
+.heading{
+	text-align: center;
+	margin: 30px 10px;
+	padding: 10px;
+	background-color: #f19f53;
+	background-image: linear-gradient(to right,rgb(249, 197, 7),rgb(240, 211, 138));
+	color: white;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: bold;
+	border-radius: 10px;
+}
+.heading h1{
+	display: inline-block;
+	margin: auto 20px;
+	vertical-align: middle;
+}
+
+.heading i{
+	vertical-align: middle;
+	font-size: xx-large;
+}
 
 .input{
 	margin: 30px auto;
